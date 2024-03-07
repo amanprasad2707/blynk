@@ -17,4 +17,6 @@ async function pushNotification() {
     })
 }
 
+setInterval(pushNotification, 1000);
+
 document.getElementById('btn').addEventListener("click", pushNotification);
