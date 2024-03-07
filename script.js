@@ -6,11 +6,17 @@ async function pushNotification() {
     const statusRes = await fetch(statusUrl);
     const isConnected = await statusRes.json();
     console.log(isConnected, typeof (isConnected))
+    if(isConnected){
+        document.querySelector('h1').innerHTML = 'Online'
+    }
+    else{
+        document.querySelector('h1').innerHTML = 'Offline'
+    }
     Notification.requestPermission().then(permission => {
         if (permission === 'granted') {
             if (distance < 20 && isConnected) {
-                new Notification("Example notification", {
-                    body: 'this is an example notification'
+                new Notification("Sewage overflow detected", {
+                    body: 'Please take immediate action'
                 });
             }
         }
@@ -19,4 +25,4 @@ async function pushNotification() {
 
 setInterval(pushNotification, 1000);
 
-document.getElementById('btn').addEventListener("click", pushNotification);
+// document.getElementById('btn').addEventListener("click", pushNotification);
