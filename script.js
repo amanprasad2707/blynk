@@ -7,11 +7,11 @@
         const isConnected = await statusRes.json();
         console.log(isConnected, typeof (isConnected))
         if(isConnected){
-            document.querySelector('h1').innerHTML = 'Online';
+            document.querySelector('h1').innerHTML = 'ONLINE';
             document.body.style.backgroundColor = 'green';
         }
         else{
-            document.querySelector('h1').innerHTML = 'Offline'
+            document.querySelector('h1').innerHTML = 'OFFLINE'
             document.body.style.backgroundColor = 'red';
         }
         Notification.requestPermission().then(permission => {
